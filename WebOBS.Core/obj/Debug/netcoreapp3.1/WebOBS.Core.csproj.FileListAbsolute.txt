@@ -1,0 +1,9 @@
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\bin\Debug\netcoreapp3.1\WebOBS.Core.deps.json
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\bin\Debug\netcoreapp3.1\WebOBS.Core.dll
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\obj\Debug\netcoreapp3.1\WebOBS.Core.AssemblyInfoInputs.cache
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\obj\Debug\netcoreapp3.1\WebOBS.Core.AssemblyInfo.cs
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\bin\Debug\netcoreapp3.1\WebOBS.Core.pdb
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\obj\Debug\netcoreapp3.1\WebOBS.Core.csproj.CoreCompileInputs.cache
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\obj\Debug\netcoreapp3.1\WebOBS.Core.dll
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\obj\Debug\netcoreapp3.1\WebOBS.Core.pdb
+C:\Users\cihat\source\repos\WebOBS\WebOBS.Core\obj\Debug\netcoreapp3.1\WebOBS.Core.csprojAssemblyReference.cache

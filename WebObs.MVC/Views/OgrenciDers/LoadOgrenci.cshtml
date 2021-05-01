@@ -1,0 +1,35 @@
+﻿@model WebObs.MVC.Models.DersOgrenciModel
+@{
+    ViewData["Title"] = "LoadOgrenci";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form>
+    <div class="modal-content">
+        <div class="modal-header">            
+            <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Öğrenci Bilgi</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="field-1" class="control-label">Kayıt Numarası</label>
+                        <input asp-for="@Model.dersogrenci.kayitNo" type="text" class="form-control" id="field-1"  disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="field-3" class="control-label">Öğrencinin Dersteki Notu</label>
+                        <input asp-for="@Model.dersogrenci.dersNotu" type="text" class="form-control" id="field-1"  disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-4" class="control-label">Öğrencinin Devamsızlığı</label>
+                        <input asp-for="@Model.dersogrenci.devamsizlik" type="text" class="form-control" id="field-1"  disabled>
+                    </div>                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

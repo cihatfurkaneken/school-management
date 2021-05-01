@@ -1,0 +1,2 @@
+C:\Users\cihat\source\repos\WebOBS\WebOBS\obj\Debug\WebOBS.csprojAssemblyReference.cache
+C:\Users\cihat\source\repos\WebOBS\WebOBS\obj\Debug\WebOBS.csproj.CoreCompileInputs.cache

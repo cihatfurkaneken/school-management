@@ -1,0 +1,153 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebObs.MVC.Identity
+@inject UserManager<AppIdentityUser> UserManager
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+
+    <title>Okul Yönetim Sistemi</title>
+
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body class="fixed-left">
+
+
+    <div id="wrapper">
+
+        <div class="topbar">
+
+
+            <div class="topbar-left">
+
+            </div>
+
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+
+                    <!-- Page title -->
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button class="button-menu-mobile open-left">
+                                <i class="zmdi zmdi-menu"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <h4 class="page-title">Okul Yönetim Sistemi</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+      
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+                <div class="user-box">
+                    <h5>Kullanıcı</h5>
+                    <h4>@UserManager.GetUserName(User)</h4>
+                </div>
+              
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="text-muted menu-title">Menü</li>
+
+                        <li>
+                            <a href="/Home/Index/" class="waves-effect"><i class="zmdi zmdi-home"></i> <span> Ana Sayfa </span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Ders/GetDersler" class="waves-effect"><i class="zmdi zmdi-book"></i> <span> Dersler </span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Ogrenci/GetOgrenciler" class="waves-effect"><i class="zmdi zmdi-account"></i><span> Öğrenciler </span></a>
+                        </li>
+
+                        <li>
+                            <a href="/OgrenciDers/GetOgrenciDers" class="waves-effect"><i class="zmdi zmdi-info"></i><span> Öğrenci Bilgi </span></a>
+                        </li>
+                        <li>
+                            <a href="/Security/Logout" class="waves-effect"><i class="zmdi zmdi-mail-reply"></i><span> Çıkış Yap </span></a>
+                        </li>
+
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- Sidebar -->
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>       
+        <div class="content-page">    
+            <div class="content">
+                <div class="container">
+
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                   
+
+                </div> 
+
+            </div> 
+
+            <footer class="footer">
+                172120003 - Cihat Furkan Eken
+            </footer>
+
+        </div>     
+       
+
+    </div>
+  
+
+
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/jquery.core.js"></script>
+    <script src="/assets/js/jquery.app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿@model WebObs.MVC.Models.DersViewModel
+@{
+    ViewData["Title"] = "GetDersler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box table-responsive">
+            <div class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" data-toggle="modal" data-target="#ders-adding-modal">Yeni Kayıt</a></li>
+                </ul>
+            </div>
+            <h4 class="header-title m-t-0 m-b-30">Ders Listesi</h4>
+            <div id="datatable-buttons_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                <table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline collapsed" role="grid" aria-describedby="datatable-buttons_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-sort="ascending" aria-label="dersId: activate to sort column descending" style="width: 20px;">Ders ID</th>
+                            <th class="sorting_" tabindex="1" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-sort="ascending" aria-label="dersAdi: activate to sort column descending" style="width: 350px;">Dersin Adı</th>
+                            <th class="sorting" tabindex="2" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-label="dersNo: activate to sort column ascending" style="width: 100px;">Ders Numarası</th>
+                            <th class="sorting" tabindex="3" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-label="ogretmen: activate to sort column ascending" style="width: 200px;">Öğretmen</th>
+                            <th class="sorting" tabindex="4" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-label="kredi: activate to sort column ascending" style="width: 20px;">Dersin Kredisi</th>
+                            <th rowspan="1" colspan="1" style="width: 50px; display: none" ;>&</th>
+                            <th rowspan="1" colspan="1" style="width: 50px; display: none" ;>&</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ders in Model.dersler)
+                        {
+                        <tr role="row" class="odd">
+                            <td class="sorting_1" tabindex="0">@ders.dersId</td>
+                            <td>@ders.dersAdi</td>
+                            <td>@ders.dersNo</td>
+                            <td>@ders.ogretmen</td>
+                            <td>@ders.dersKredi</td>
+                            <td align="center"><button class="btn btn-purple" data-toggle="modal" data-target="#ders-updating-modal" onclick="editDers(@ders.dersId)">Düzenle</button></td>
+                            <td align="center"><button class="btn btn-danger" onclick="deleteDers(@ders.dersId)">Sil</button></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ders-adding-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <form asp-controller="Ders" asp-action="Add" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Yeni Ders Ekle</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Ders Adı</label>
+                                <input asp-for="@Model.ders.dersAdi" type="text" class="form-control" id="field-1" placeholder="Dersin Adını Giriniz">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Ders Numarası</label>
+                                <input asp-for="@Model.ders.dersNo" type="text" class="form-control" id="field-1" placeholder="Ders No Giriniz">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Kredi</label>
+                                <input asp-for="@Model.ders.dersKredi" type="text" class="form-control" id="field-1" placeholder="Dersin Kredisini Giriniz">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Öğretmen</label>
+                                <input asp-for="@Model.ders.ogretmen" type="text" class="form-control" id="field-1" placeholder="Öğretmeni Giriniz">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-purple waves-effect waves-light">Kaydı Ekle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="ders-updating-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <form asp-controller="Ders" asp-action="Edit" method="post">
+            <input asp-for="@Model.ders.dersId" id="dersId" hidden />
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title"><i class="fa fa-refresh"></i> Ders Düzenle</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Dersin Adı</label>
+                                <input asp-for="@Model.ders.dersAdi" type="text" class="form-control" id="dersAdi">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Öğretmen</label>
+                                <input asp-for="@Model.ders.ogretmen" type="text" class="form-control" id="ogretmen">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Kredi</label>
+                                <input asp-for="@Model.ders.dersKredi" type="text" class="form-control" id="kredi">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Ders No</label>
+                                <input asp-for="@Model.ders.dersNo" type="text" class="form-control" id="dersno" >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-purple waves-effect waves-light">Değişiklikleri Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    <!-- /.modal -->
+
+
+<script type="text/javascript">
+    function editDers(id) {
+        $.get("/Ders/Edit", { id: id })
+            .done(function (ders) {
+                $('#dersId').val(ders.dersId);
+                $('#ogretmen').val(ders.ogretmen);
+                $('#dersno').val(ders.dersNo);
+                $('#kredi').val(ders.dersKredi);
+                $('#dersAdi').val(ders.dersAdi);
+                $('#ders-updating-modal').modal('show');
+            })
+    }
+    function deleteDers(id) {
+        alert("Ders Başarıyla Silindi Lütfen Sayfayı Yenileyin");
+                $.get("/Ders/Delete", { id: id })
+                    .done(function (result) {
+                        if (result == 0) {
+                            swal("Hata!", "Islem gerceklestirilemedi!", "warning");
+                        }
+                        else {
+                            swal("Tebrikler!", "Islem basariyla gerceklesti!", "success");
+                        }
+                    })
+            }
+            
+
+</script>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebOBS.DataAccess\WebOBS.DataAccess.csproj" />
+    <ProjectReference Include="..\WebOBS.Entity\WebOBS.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

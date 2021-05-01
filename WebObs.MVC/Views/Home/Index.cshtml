@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebObs.MVC.Identity
+@inject UserManager<AppIdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <br />
+            <h2 class="display-4">WEB PROGRAMLAMA ÖDEVİ</h2>
+            <h4>Soldaki menüden işlemlere ulaşabilirsiniz</h4>
+            <h5>172120003 - Cihat Furkan Eken</h5>
+            <p class="text-muted font-13 m-t-20"><b>@UserManager.GetUserName(User)</b> Olarak Giriş Yaptınız. </p>
+            <br />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model WebObs.MVC.Models.DersOgrenciModel
+@{
+    ViewData["Title"] = "GetOgrenciDers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box table-responsive">           
+
+            <h4 class="header-title m-t-0 m-b-30">Öğrenci Ders Detayları</h4>           
+            
+            <div id="datatable-buttons_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                <table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline collapsed" role="grid" aria-describedby="datatable-buttons_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-sort="ascending" aria-label="kayitNo: activate to sort column descending" style="width: 20px;">Kayıt No</th>
+                            <th class="sorting_" tabindex="1" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-sort="ascending" aria-label="dersAdi: activate to sort column descending" style="width: 400px;">Aldığı Ders</th>
+                            <th class="sorting" tabindex="2" aria-controls="datatable-buttons" rowspan="1" colspan="1" aria-label="ogrendiAdi: activate to sort column ascending" style="width: 400px;">Öğrenci Adı</th>
+                            <th rowspan="1" colspan="1" style="width: 50px; display: none" ;>&</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ogrenci in Model.dersogrenciler)
+                        {
+                            <tr role="row" class="odd">
+                                <td class="sorting_1" tabindex="0">@ogrenci.kayitNo</td>
+                                <td>@ogrenci.DersAdi</td>
+                                <td>@ogrenci.OgrenciAdi</td>
+                                <td align="center"><a href="/OgrenciDers/LoadOgrenci/@ogrenci.kayitNo" class="btn btn-info">Detay</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<h5>Gerekli kaydın yanında bulunan detay tuşunu kullnarak. Öğrencinin o dersteki notu ve devamsızlığına ulaşabilirsiniz.</h5>
+
